@@ -2,7 +2,7 @@
   margin: 0;
 }
 
-/* CSS for Header.js file */
+/**************************CSS for Header.js file*********************/
 
 .wrap{
   width:100%;
@@ -62,7 +62,7 @@ main{
 #search-input:focus {
     outline: none;
 }
-#user-image{
+.user-image{
     height: 20px;
     width: 30px;
     border: 2px solid white;
@@ -73,7 +73,7 @@ main{
 }
 
 
-/* CSS for Sidebar.js file */
+/****************************CSS for Sidebar.js file*****************************/
 
 #wrap-sidebar{
   background: #3F0E40;
@@ -149,10 +149,12 @@ main{
   background: #350D36;
 }
 
-/* CSS for chat.js file */
-#chatHeader-wrap{
+/********************************CSS for chat.js file*****************************/
+#chatBox-wrap{
   display: grid;
   grid-template-rows: 64px auto min-content;
+  background-image: url("https://www.freegreatpicture.com/files/146/24228-colorful-high-resolution-background.jpg");
+  background-position: bottom;
 }
 
 #ChannelDetails{
@@ -175,11 +177,97 @@ main{
   margin-top: 8px;
 }
 
-#chat-header{
+#chatHeader-wrap{
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(83, 39, 83,.13);
   justify-content: space-between;
+}
+
+/************************************* CSS for ChatInput.js*************************** */
+
+#chatInput-wrap{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 24px;
+}
+
+#messageInput-wrap{
+  border: 1px solid #8D8D8E;
+  border-radius: 4px;
+}
+
+#messageInput-wrap>form {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  padding-left: 10px;
+}
+#messageInput-wrap>form>input {
+  flex: 1;
+  border: none;
+  font-size: 13px;
+  margin-right: 20px;
+  background-color: transparent;
+}
+#messageInput-wrap>form>input:focus {
+      outline: none;
+  }
+
+
+#sendButton{
+    background: #668cc4;
+    border-radius: 2px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+}
+.MuiSvgIcon-root {
+  width: 18px;
+}
+#sendButton:hover {
+  background: #5797f7;
+}
+
+/***************************************CSS for ChatMessage.js**************************/
+#chatMessage-wrap{
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+}
+#chatMessage-wrap:hover{
+  background: rgb(218, 176, 218);
+}
+#user-Avatar{
+  width: 50px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 8px;
+}
+#user-Avatar>img {
+  width: 100%;
+}
+#messageContent{
+  display: flex;
+  flex-direction: column;
+}
+
+#user-Name{
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 1.4;
+}
+#user-Name> span {
+  margin-left: 8px;
+  font-weight: 400;
+  color: rgb(97,96,97);
+  font-size: 13px;
 }

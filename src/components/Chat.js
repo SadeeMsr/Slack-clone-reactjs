@@ -1,10 +1,13 @@
 import React from 'react'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import ChatInput from './ChatInput'
+import ChatMessage from './ChatMessage'
 
 function Chat() {
     return (
-        < div id="chatHeader-wrap">
-            <div id="chat-header">
+        < div id="chatBox-wrap">
+
+            <div id="chatHeader-wrap">
                 <div id="chat-channel">
                     <div id="chatChannel-Name">
                         # Spider-Man
@@ -20,6 +23,11 @@ function Chat() {
                     <InfoOutlinedIcon />
                 </div>
             </div>
+
+            <div id="message-container">
+                <ChatMessage />
+            </div>
+            <ChatInput />
         </div>
     )
 }
