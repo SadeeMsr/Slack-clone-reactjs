@@ -6,10 +6,12 @@ import Login from './components/Login'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import db from './firebase'
+import { auth, provider } from "./firebase";
 
 function App() {
   
-  const [rooms,setRooms] = useState([]);
+  const [rooms,setRooms] = useState([])
+  const [user,setUser]   = useState(JSON.parse(localStorage.getItem('user')));
 
   const getChannels = ()=>{
     db.collection('rooms').onSnapshot((snapshot)=>{
@@ -19,29 +21,40 @@ function App() {
     })
   };
 
+  const signOut = () => {
+    auth.signOut().then(()=>{
+      localStorage.removeItem('user');
+      setUser(null);
+    })
+  }
+
   useEffect(()=>{
     getChannels();
   },[]);
 
-  console.log(rooms);
+  console.log("user in app state",user);
   
   return (
     <div className="App">
       <Router>
+        {
+          !user ? <Login setUser={setUser} />:
+        
         <div className="wrap">
-          <Header />
+          <Header signOut={signOut} user={user} />
           <main>
             <Sidebar rooms={rooms} />
             <Switch>
-              <Route path="/room">
-                <Chat />
+              <Route path="/room/:channelId">
+                <Chat user={user} />
               </Route>
-              <Route path="/">
-                <Login />
-              </Route>
+                  <Route path="/">
+                      Select or Create Channel
+                  </Route>
             </Switch>
           </main>
         </div>
+        }
       </Router>
     </div>
   );

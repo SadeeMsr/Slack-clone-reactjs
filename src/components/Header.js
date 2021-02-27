@@ -3,7 +3,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-function Header() {
+function Header({user,signOut}) {
     return (
         <div id="wrap-header">
 
@@ -20,10 +20,10 @@ function Header() {
 
             <div id="second-part">
                 <div id="name">
-                    Sadee
+                    {user.name}
                 </div>
-                <div class="user-image">
-                    <img src="https://img.pngio.com/man-face-logo-men-face-logo-design-png-image-transparent-png-men-logo-png-820_600.png" width="100%" height="100%" alt="user" />
+                <div onClick={signOut} class="user-image">
+                    <img  src={user.photo ? user.photo : "https://i.imgur.com/6VBx3io.png"} width="100%" height="100%" alt="user" />
                 </div>
             </div>
         </div>

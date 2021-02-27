@@ -67,6 +67,7 @@ main{
     width: 30px;
     border: 2px solid white;
     border-radius: 3px;
+    cursor: pointer;
 }
 #name{
   padding-right: 16px;
@@ -153,6 +154,7 @@ main{
 #chatBox-wrap{
   display: grid;
   grid-template-rows: 64px auto min-content;
+  min-height: 0;
   background-image: url("https://www.freegreatpicture.com/files/146/24228-colorful-high-resolution-background.jpg");
   background-position: bottom;
 }
@@ -216,6 +218,12 @@ main{
       outline: none;
   }
 
+#messageContainer{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
 
 #sendButton{
     background: #668cc4;
@@ -270,4 +278,50 @@ main{
   font-weight: 400;
   color: rgb(97,96,97);
   font-size: 13px;
+}
+
+
+/******************* CSS for Login.js******************/
+
+#login-wrap{
+    width: 100%;
+    height: 100vh;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-content{
+    background: white;
+    padding: 100px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}
+
+#login-content>img{
+  height: 100px;
+}
+
+#signIn-button{
+    margin-top: 50px;
+    background-color: #0a8d48;
+    color: white;
+    border: none;
+    height: 40px;
+    width: 145px;
+    padding-left: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#signIn-button:hover{
+  background-color: #379965;
 }

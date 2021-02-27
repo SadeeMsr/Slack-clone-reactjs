@@ -1,20 +1,20 @@
 import React from 'react'
 
-function ChatMessage() {
+function ChatMessage({text, name, image,timestamp}) {
     return (
         <div id="chatMessage-wrap">
              <div id="user-Avatar">
-                    <img src="https://img.pngio.com/man-face-logo-men-face-logo-design-png-image-transparent-png-men-logo-png-820_600.png"  alt="user" />
+                    <img src={image} alt="user" />
             </div>
             <div id="messageContent">
                 <div id="user-Name">
-                    sadee
+                    {name}
                     <span>
-                        20/22/2020 4:55pm
+                        {new Date(timestamp.toDate()).toUTCString()}
                     </span>
                 </div>
                 <div id="user-Text">
-                    <p>kisuina habi jabi.</p>
+                    {text}
                 </div>
             </div>
             

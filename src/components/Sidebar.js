@@ -4,8 +4,19 @@ import { sidebarItemsData } from '../data/SidebarData'
 //import { sidebarChannelListsData } from '../data/SidebarData'
 import AddIcon from '@material-ui/icons/Add'
 import db from '../firebase'
+import { useHistory } from 'react-router-dom'
 
 function Sidebar(props) {
+
+    const history = useHistory();
+
+
+    const goToChannel = (id) => {
+        if(id){
+            console.log(id);
+            history.push(`/room/${id}`)
+        }
+    }
 
     const addChannel = () => {
         const promptName = prompt("add new channel name");
@@ -51,7 +62,7 @@ function Sidebar(props) {
                 <div id="channelLists">
                     {props.rooms.map(channel => {
                         return(
-                            <div id="Channels-Item">
+                            <div onClick={()=>goToChannel(channel.id)} id="Channels-Item">
                                 #{channel.name}
                             </div>
                             );
